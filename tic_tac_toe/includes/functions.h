@@ -1,8 +1,12 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
-#include<stdio.h>
+#define MAX 3
 
-void displayBoard();
+#include<stdio.h>
+#include<stdbool.h>
+void displayBoard(int[MAX][MAX]);
+
+int search(int[MAX][MAX],int);
 
 #endif
