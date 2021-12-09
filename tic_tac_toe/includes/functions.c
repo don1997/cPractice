@@ -27,22 +27,17 @@ int search(int ARR[MAX][MAX],int select){
     for(x = 0; x < MAX; x++){
         
         for(y = 0; y < MAX; y++){
-		printf("%d",ARR[x][y]);
-		if(ARR[x][y] == select){
-			
+		
+		if(select == ARR[x][y]){
 			return 1;
 
-		}
-		else{
-
-			return 0;
 		}
 
 	}
 
     }
 
-
+	return 0;
 }
 
 //Checks to see if selection matches searchVAL

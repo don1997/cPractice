@@ -1,3 +1,7 @@
+//LINKS: https://stackoverflow.com/questions/4594433/how-do-i-write-a-function-to-search-for-an-element-in-two-dimensional-array
+//^^ This helped me fix constant return statment of 0 when return 0 was in for loop.
+//
+//
 //SUMMARY: tic tac toe in c
 //PURPOSE: To have additional experience with C and problem solving skills.
 //DEADLINE: N/A
@@ -27,7 +31,7 @@ int main(void)
     	scanf("%d", &selectIN);
 	
 	decision = search(arr,selectIN);
-    //printf("%d\n", decision);
+    	printf("%d\n", decision);
 
 
 	
