@@ -29,7 +29,7 @@ int main(void)
     
         printf("Make a selection on the board: ");
     	scanf("%d", &selectIN);
-	
+
 	decision = search(arr,selectIN);
     	printf("%d\n", decision);
 

@@ -9,4 +9,6 @@ void displayBoard(int[MAX][MAX]);
 
 int search(int[MAX][MAX],int);
 
+int* update(int,int);
+
 #endif
