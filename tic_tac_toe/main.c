@@ -9,29 +9,33 @@
 
 
 #include<stdio.h>
-#include<stdbool.h>
 
 #include"includes/functions.h"
 int main(void)
 {
+    	//VAR
+    	int row, col;
 	//INIT ARRAY
-	int arr[MAX] [MAX] = {
+	char arr[] [3] = {
 
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9}
+        {0, 1, 2},
+        {3, 4, 5},
+        {6, 7, 8}
     
         };
+while(1){
 
-    	int selectIN, result;
-	    int decision;
 	displayBoard(arr);
-    
-        printf("Make a selection on the board: ");
-    	scanf("%d", &selectIN);
+	    
+        printf("Select Row: ");
+	scanf("%d", &row);
+	printf("Select Column: ");
+	scanf("%d", &col);
 
-	decision = search(arr,selectIN);
-    	printf("%d\n", decision);
+	UPDATE(arr, row, col);
+
+	displayBoard(arr);
+}
 
 
 	

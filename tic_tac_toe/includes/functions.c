@@ -1,60 +1,59 @@
 #include<stdio.h>
-#include<stdbool.h>
 #include"functions.h"
+const int M = 3;
 
-void displayBoard(int ARR[MAX][MAX]){
-    //counter vars
+void displayBoard(char (*arr)[M]){
     int i, j;
-    //DISPLAY 2D array
-    for(i = 0; i < MAX; i++){
-        printf("---------\n");
-        for(j = 0; j < MAX; j++){
-            
-            printf("|%d|", ARR[i][j]);
-                    
+     printf("-----\n");    
 
+    for (i = 0; i < M; i++){
+        for (j = 0; j < M; j++){
+                if(arr[i][j] == 120){
+ 
+                        printf("%c ", arr[i][j]);
+                }
+                else{   
+                        printf("%d ", arr[i][j]);
+                }
         }
         printf("\n");
-    }
-    printf("---------\n");
+	printf("-----");
+	printf("\n");
+    }//ENDFOR
+printf("\n");
+}
+   
 
-}//ENDFUNC
+int SEARCH(char(*arr)[M], int in){
 
-//searches 2D array value
-int search(int ARR[MAX][MAX],int select){
-	int x,y;
+        int i, j;
 
-	for(x = 0; x < MAX; x++){
-        
-        	for(y = 0; y < MAX; y++){
-		
-			if(select == ARR[x][y]){
-				//Update array with selection
-				int *ptr = update(ARR,select);
-				displayBoard(ARR);
-				//How to return?
-				return 1;
+        for (i = 0; i < M; i++){
+                
+                for(j= 0; j<M;j++){
+                
+                        if(in == arr[i][j]){
+                                return 1;
+                                printf(" FOUND");
 
-			}
+                        }
 
-		}
+                }
 
-    	}
-	//ELSE
-	return 0;
-}//ENDFUNC
+        }
+        return 0;
+}
 
-//Checks to see whether selected item exists, if it does it updates array with 
-//new value
-//if not it moves on.
+void UPDATE(char(*arr)[M], int in, int in2){
 
-int* update(int *array,int select){
-	
-	int i;
+        if(SEARCH(arr, in) == 1){
 
-	array[0][0] = select;
 
-	return array;
-	
+                 arr[in][in2] = 'x'; 
+        }
+        else{
+
+                printf("Not found");
+        }
 }
 
