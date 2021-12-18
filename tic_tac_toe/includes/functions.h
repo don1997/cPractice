@@ -4,6 +4,7 @@
 
 #include<stdio.h>
 
+
 void displayBoard(char (*)[3]);
 
 int SEARCH(char (*)[3],int);

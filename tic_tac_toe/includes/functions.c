@@ -46,14 +46,20 @@ int SEARCH(char(*arr)[M], int in){
 
 void UPDATE(char(*arr)[M], int in, int in2){
 
-        if(SEARCH(arr, in) == 1){
+//        if(SEARCH(arr, in) == 1){
 
 
                  arr[in][in2] = 'x'; 
+        /*
+        }
+       else if(SEARCH(arr,in) == 0){
+
+                printf("jackshit\n");
         }
         else{
 
-                printf("Not found");
+                printf("Not found\n");
         }
+    */
 }
 
