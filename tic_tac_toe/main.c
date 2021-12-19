@@ -7,15 +7,24 @@
 //DEADLINE: N/A
 //LEARN: C 2D ARRAYS, C ARRAY FUNCTIONS, PASSING ARRAYS AS FUNCTIONS 
 
-
+//problem: After implementing 2nd player turn into game some bugs have appeared:
+//The player and computer can replace eachothers pieces on game.
+//also i need to rethink the win system because i dont think 
+//it works correctly. Because I need it to differentiate from player to Computer.
+//solution: I need to make a way for the program to check if the coordinate
+//is currently populated with an 'x' or an 'o'. If it is the rand functions should
+//regenerate until there is a proper coordinate that is not currently populated with the things described above.
+//
 #include<stdio.h>
-
+#include<stdlib.h>
 #include"includes/functions.h"
 const int P = 3;
 
 int main(void)
 {
+	int compTURN = 0;
     	//VAR
+	int gameON = 1;
     	int row, col;
 	//INIT ARRAY
 	char arr[] [3] = {
@@ -26,7 +35,7 @@ int main(void)
     
         };
 	
-	while(1){
+	while(gameON){
 
 		displayBoard(arr);
 	    
@@ -38,49 +47,29 @@ int main(void)
 		UPDATE(arr, row, col);
 
 		displayBoard(arr);
-			
-		int cont[P];
-		int i;
-        	printf("----------------------\n");
-        	for(i = 0; i < P; i++){
-                
-                	cont[i] = arr[0][i];    
+		int test = checkWin(arr);
+		
+		printf("%d\n", test);
+		//Spacer
+		printf("\n\n");
+       		//Switch game off if condition met
+		if(test != 0){
 
-        	}
-        
-        	printf("array copied into another array: \n");
-        	int winCounter = 0;
-		for(i = 0; i < P; i++){
-			//counter how many x's in the row.
-			if(cont[i] == 'x'){
-				
-				winCounter++;
-				//When number of x's is equal to 3. prints You win!
-				if(winCounter == 3){
-
-					printf("YOU WIN");
-
-				}
-
-			}
-	
+			gameON = 0;
+			printf("player wins\n");
 		}
+		
+		compTURN = 1;
+		compMove(arr);
+		checkWin(arr);
+		if(test != 0 && compTURN == 1){
 
-		/*
-		//prints contiainer array
-		for(i = 0; i < P; i++){
-        		if(cont[i] == 120){
-				printf("%c", cont[i]);
-			}
-			else{
 
-                		printf("%d", cont[i]);
-			}
-        	}
-		*/
-	printf("\n\n");
+			gameON = 0;
+			printf("comp wins\n");
+		}
+		//if test for win
 
-	
     	}//ENDWHILE
 
 
